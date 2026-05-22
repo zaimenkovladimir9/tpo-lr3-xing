@@ -1,0 +1,70 @@
+digraph XingUseCases {
+  graph [
+    rankdir=LR,
+    bgcolor="white",
+    fontname="Arial",
+    labelloc="t",
+    label="UseCase-диаграмма XING.com, вариант 48122"
+  ];
+  node [fontname="Arial", fontsize=12];
+  edge [fontname="Arial", fontsize=10];
+
+  guest [shape=plaintext, label=<
+    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+      <TR><TD><FONT POINT-SIZE="30">&#9786;</FONT></TD></TR>
+      <TR><TD>Гость</TD></TR>
+    </TABLE>
+  >];
+
+  candidate [shape=plaintext, label=<
+    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+      <TR><TD><FONT POINT-SIZE="30">&#9786;</FONT></TD></TR>
+      <TR><TD>Пользователь</TD></TR>
+    </TABLE>
+  >];
+
+  recruiter [shape=plaintext, label=<
+    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+      <TR><TD><FONT POINT-SIZE="30">&#9786;</FONT></TD></TR>
+      <TR><TD>Работодатель</TD></TR>
+    </TABLE>
+  >];
+
+  subgraph cluster_xing {
+    label="XING.com";
+    style="rounded";
+    color="#7aa7a2";
+
+    uc_home [shape=ellipse, label="Просмотреть\nглавную страницу"];
+    uc_search [shape=ellipse, label="Искать вакансии"];
+    uc_filter [shape=ellipse, label="Фильтровать\nрезультаты"];
+    uc_save [shape=ellipse, label="Сохранить\nвакансию"];
+    uc_companies [shape=ellipse, label="Просмотреть\nкаталог компаний"];
+    uc_network [shape=ellipse, label="Перейти к\nрегистрации"];
+    uc_signup [shape=ellipse, label="Зарегистрировать\nпрофиль"];
+    uc_insights [shape=ellipse, label="Читать карьерные\nматериалы"];
+    uc_job_ad [shape=ellipse, label="Создать\nобъявление о работе"];
+    uc_login [shape=ellipse, label="Авторизоваться"];
+  }
+
+  guest -> uc_home;
+  guest -> uc_search;
+  guest -> uc_companies;
+  guest -> uc_network;
+  guest -> uc_signup;
+  guest -> uc_insights;
+  guest -> uc_job_ad;
+
+  candidate -> uc_search;
+  candidate -> uc_filter;
+  candidate -> uc_save;
+  candidate -> uc_login;
+
+  recruiter -> uc_job_ad;
+  recruiter -> uc_login;
+
+  uc_search -> uc_filter [style=dashed, label="include"];
+  uc_save -> uc_login [style=dashed, label="extend"];
+  uc_job_ad -> uc_login [style=dashed, label="extend"];
+  uc_network -> uc_signup [style=dashed, label="include"];
+}

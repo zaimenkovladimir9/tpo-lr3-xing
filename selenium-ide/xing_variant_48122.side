@@ -1,0 +1,102 @@
+{
+  "id": "48122-xing-suite",
+  "version": "2.0",
+  "name": "LR3 Variant 48122 - XING",
+  "url": "https://www.xing.com",
+  "tests": [
+    {
+      "id": "tc-01-home",
+      "name": "TC-01 Home page guest navigation",
+      "commands": [
+        {"id": "tc-01-01", "comment": "", "command": "open", "target": "/", "targets": [], "value": ""},
+        {"id": "tc-01-02", "comment": "", "command": "setWindowSize", "target": "1440x1000", "targets": [], "value": ""},
+        {"id": "tc-01-03", "comment": "", "command": "assertElementPresent", "target": "xpath=//h1[contains(normalize-space(), 'Tell the XING AI about the job you want')]", "targets": [], "value": ""},
+        {"id": "tc-01-04", "comment": "", "command": "assertElementPresent", "target": "xpath=//a[.//*[normalize-space()='Companies'] or normalize-space()='Companies']", "targets": [], "value": ""},
+        {"id": "tc-01-05", "comment": "", "command": "assertElementPresent", "target": "xpath=//a[.//*[normalize-space()='Search'] or normalize-space()='Search']", "targets": [], "value": ""}
+      ]
+    },
+    {
+      "id": "tc-02-search",
+      "name": "TC-02 Open job search from navigation",
+      "commands": [
+        {"id": "tc-02-01", "comment": "", "command": "open", "target": "/", "targets": [], "value": ""},
+        {"id": "tc-02-02", "comment": "", "command": "click", "target": "xpath=//a[.//*[normalize-space()='Search'] or normalize-space()='Search']", "targets": [], "value": ""},
+        {"id": "tc-02-03", "comment": "", "command": "waitForElementPresent", "target": "xpath=//*[self::h1 or self::h2][contains(normalize-space(), 'All available jobs')]", "targets": [], "value": "30000"},
+        {"id": "tc-02-04", "comment": "", "command": "assertElementPresent", "target": "xpath=//input[@placeholder='Location']", "targets": [], "value": ""},
+        {"id": "tc-02-05", "comment": "", "command": "assertElementPresent", "target": "xpath=//button[@aria-label='Save job' or .//span[normalize-space()='Save job']]", "targets": [], "value": ""}
+      ]
+    },
+    {
+      "id": "tc-03-companies",
+      "name": "TC-03 Companies catalog",
+      "commands": [
+        {"id": "tc-03-01", "comment": "", "command": "open", "target": "/companies", "targets": [], "value": ""},
+        {"id": "tc-03-02", "comment": "", "command": "waitForElementPresent", "target": "xpath=//*[self::h1 or self::h2][contains(normalize-space(), 'Top companies hiring now')]", "targets": [], "value": "30000"},
+        {"id": "tc-03-03", "comment": "", "command": "assertElementPresent", "target": "xpath=//*[self::h1 or self::h2][contains(normalize-space(), 'Companies by industry')]", "targets": [], "value": ""},
+        {"id": "tc-03-04", "comment": "", "command": "assertElementPresent", "target": "xpath=//a[contains(normalize-space(), 'View') and contains(normalize-space(), 'jobs')]", "targets": [], "value": ""}
+      ]
+    },
+    {
+      "id": "tc-04-network",
+      "name": "TC-04 Network registration entry",
+      "commands": [
+        {"id": "tc-04-01", "comment": "", "command": "open", "target": "/network", "targets": [], "value": ""},
+        {"id": "tc-04-02", "comment": "", "command": "waitForElementPresent", "target": "xpath=//*[contains(normalize-space(), 'Join XING now')]", "targets": [], "value": "30000"},
+        {"id": "tc-04-03", "comment": "", "command": "assertElementPresent", "target": "xpath=//a[contains(normalize-space(), 'Register now')]", "targets": [], "value": ""}
+      ]
+    },
+    {
+      "id": "tc-05-signup",
+      "name": "TC-05 Signup required fields",
+      "commands": [
+        {"id": "tc-05-01", "comment": "", "command": "open", "target": "/start/signup", "targets": [], "value": ""},
+        {"id": "tc-05-02", "comment": "", "command": "waitForElementPresent", "target": "xpath=//*[self::h1 or self::h2][contains(normalize-space(), 'Sign up now')]", "targets": [], "value": "30000"},
+        {"id": "tc-05-03", "comment": "", "command": "assertElementPresent", "target": "xpath=//input[@name='firstName' and not(@aria-hidden='true')]", "targets": [], "value": ""},
+        {"id": "tc-05-04", "comment": "", "command": "assertElementPresent", "target": "xpath=//input[@name='lastName' and not(@aria-hidden='true')]", "targets": [], "value": ""},
+        {"id": "tc-05-05", "comment": "", "command": "assertElementPresent", "target": "xpath=//input[@name='email' and not(@aria-hidden='true')]", "targets": [], "value": ""},
+        {"id": "tc-05-06", "comment": "", "command": "assertElementPresent", "target": "xpath=//input[@name='password' and not(@aria-hidden='true')]", "targets": [], "value": ""}
+      ]
+    },
+    {
+      "id": "tc-06-insights",
+      "name": "TC-06 Insights categories",
+      "commands": [
+        {"id": "tc-06-01", "comment": "", "command": "open", "target": "/insights", "targets": [], "value": ""},
+        {"id": "tc-06-02", "comment": "", "command": "waitForText", "target": "xpath=//body", "targets": [], "value": "Recommended"},
+        {"id": "tc-06-03", "comment": "", "command": "assertElementPresent", "target": "xpath=//*[normalize-space()='Salary']", "targets": [], "value": ""},
+        {"id": "tc-06-04", "comment": "", "command": "assertElementPresent", "target": "xpath=//a[string-length(normalize-space()) > 20]", "targets": [], "value": ""}
+      ]
+    },
+    {
+      "id": "tc-07-job-ad",
+      "name": "TC-07 Create job ad entry form",
+      "commands": [
+        {"id": "tc-07-01", "comment": "", "command": "open", "target": "/", "targets": [], "value": ""},
+        {"id": "tc-07-02", "comment": "", "command": "click", "target": "xpath=//a[.//span[normalize-space()='Create a job ad'] or normalize-space()='Create a job ad']", "targets": [], "value": ""},
+        {"id": "tc-07-03", "comment": "", "command": "waitForElementPresent", "target": "xpath=//*[contains(normalize-space(), 'XING Job Ads')]", "targets": [], "value": "30000"},
+        {"id": "tc-07-04", "comment": "", "command": "assertElementPresent", "target": "xpath=//input[@name='title']", "targets": [], "value": ""},
+        {"id": "tc-07-05", "comment": "", "command": "assertElementPresent", "target": "xpath=//button[.//span[normalize-space()='Preview your ad'] or normalize-space()='Preview your ad']", "targets": [], "value": ""}
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite-public-functional",
+      "name": "XING public functional suite",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "tc-01-home",
+        "tc-02-search",
+        "tc-03-companies",
+        "tc-04-network",
+        "tc-05-signup",
+        "tc-06-insights",
+        "tc-07-job-ad"
+      ]
+    }
+  ],
+  "urls": ["https://www.xing.com/"],
+  "plugins": []
+}
