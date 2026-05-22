@@ -406,7 +406,7 @@ class XingPublicTest {
         try {
             driver.quit();
         } catch (RuntimeException ignored) {
-            // Browser may already be closed by the OS, user, or driver crash.
+            // или может упасть до завешения, игорим
         }
     }
 
@@ -463,7 +463,7 @@ class XingPublicTest {
                 button.click();
                 return;
             } catch (RuntimeException ignored) {
-                // Cookie banners are regional and may be absent.
+                // куки баннеры опциональные, могут быть закрыты адблокером и тыры пыры
             }
         }
         removeBlockingConsentOverlay();
